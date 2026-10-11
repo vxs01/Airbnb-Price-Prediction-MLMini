@@ -1,0 +1,5 @@
+data/
+.csv
+!results/.csv
+*.zip
+.ipynb_checkpoints/
