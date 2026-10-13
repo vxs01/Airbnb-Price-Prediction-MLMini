@@ -1,6 +1,10 @@
-data/
-.csv
-!results/.csv
-*.zip
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
 .ipynb_checkpoints/
-practice instructions.txt
+.DS_Store
+
+# raw data is large - see data/README.md
+data/*.csv
+data/*.zip

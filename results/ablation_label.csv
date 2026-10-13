@@ -1,0 +1,10 @@
+city,label,test_r2_own_scale,test_r2_price,test_mae_price
+berlin,none,0.6252,0.6252,32.0118
+berlin,sqrt,0.6542,0.6323,30.9891
+berlin,log,0.6644,0.6362,30.5773
+paris,none,0.6183,0.6183,47.9306
+paris,sqrt,0.6447,0.6232,47.0521
+paris,log,0.6495,0.6105,47.3762
+nyc,none,0.7231,0.7231,41.8077
+nyc,sqrt,0.7506,0.7108,41.6393
+nyc,log,0.7695,0.6974,41.8961
