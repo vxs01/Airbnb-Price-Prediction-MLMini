@@ -82,11 +82,12 @@ def main(argv=None):
     p.add_argument("--models", nargs="+", default=ALL_MODELS)
     p.add_argument("--quick", action="store_true", help="1 seed, no ablations")
     p.add_argument("--data-dir", default=None)
+    p.add_argument("--gdrive-folder", default=None, help="Google Drive folder URL")
     a = p.parse_args(argv)
     seeds = config.SEEDS[:1] if a.quick else config.SEEDS
     config.RESULTS_DIR.mkdir(exist_ok=True)
 
-    frames = {c: load_city(c, a.data_dir) for c in a.cities}
+    frames = {c: load_city(c, a.data_dir, a.gdrive_folder) for c in a.cities}
     rows, preds, imps, lab, feat = [], {}, {}, [], []
     for city, df in frames.items():
         print(f"{city}: {len(df):,} listings after cleaning", flush=True)

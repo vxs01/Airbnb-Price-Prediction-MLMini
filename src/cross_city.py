@@ -71,9 +71,10 @@ def main(argv=None):
     p.add_argument("--models", nargs="+", default=["nn_small", "xgb"])
     p.add_argument("--seeds", nargs="+", type=int, default=list(config.SEEDS))
     p.add_argument("--data-dir", default=None)
+    p.add_argument("--gdrive-folder", default=None, help="Google Drive folder URL")
     a = p.parse_args(argv)
 
-    data = {c: load_city(c, a.data_dir) for c in config.CITIES}
+    data = {c: load_city(c, a.data_dir, a.gdrive_folder) for c in config.CITIES}
     rows = []
     for seed in a.seeds:
         splits = {c: split(data[c], seed) for c in ("nyc", "paris")}
