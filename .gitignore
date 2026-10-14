@@ -8,3 +8,4 @@ __pycache__/
 # raw data is large - see data/README.md
 data/*.csv
 data/*.zip
+Airbnb_Price_Prediction_Mini_Project.pptx
