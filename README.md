@@ -100,6 +100,23 @@ python demo.py --city paris    # ~1 min, for the live demo
 pytest -q                      # tests, no data needed
 ```
 
+### Use the Google Drive folder
+
+The scripts download the equivalent CSVs from the configured `raw` Google Drive
+folder and reuse them from `.cache/airbnb_gdrive`:
+
+```bash
+python demo.py --city paris
+python -m src.single_city --quick
+python -m src.cross_city
+```
+
+The default folder can be overridden by setting `AIRBNB_GDRIVE_FOLDER` or by
+passing `--gdrive-folder "https://drive.google.com/drive/folders/FOLDER_ID"`.
+The folder must be accessible to the Google account/session used by `gdown`
+("Anyone with the link" is the simplest setup). `--data-dir` takes precedence
+over Google Drive and remains useful for offline tests.
+
 ## Method (short)
 
 * **Data:** Inside Airbnb detailed listings for Berlin (Sep 2025), Paris (Mar 2026) and NYC (Jun 2026).

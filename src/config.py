@@ -1,10 +1,18 @@
 """Paths, column lists and experiment settings shared by every script."""
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
+GDRIVE_CACHE_DIR = ROOT / ".cache" / "airbnb_gdrive"
 RESULTS_DIR = ROOT / "results"
 FIG_DIR = RESULTS_DIR / "figures"
+
+# An explicit AIRBNB_GDRIVE_FOLDER or --data-dir can override this source.
+GDRIVE_FOLDER_URL = os.environ.get(
+    "AIRBNB_GDRIVE_FOLDER",
+    "https://drive.google.com/drive/folders/1jX0ZgSC8IiFIQvxlUd3gXerPbnIGZyfD",
+)
 
 SEED = 42
 SEEDS = (42, 7, 2024)        # repeated splits for mean ± std in the main table

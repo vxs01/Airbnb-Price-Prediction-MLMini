@@ -18,9 +18,10 @@ def main(argv=None):
     p.add_argument("--city", default="paris", choices=config.CITIES)
     p.add_argument("--n", type=int, default=8)
     p.add_argument("--data-dir", default=None)
+    p.add_argument("--gdrive-folder", default=None, help="Google Drive folder URL")
     a = p.parse_args(argv)
 
-    train, dev, test = split(load_city(a.city, a.data_dir))
+    train, dev, test = split(load_city(a.city, a.data_dir, a.gdrive_folder))
     fb = FeatureBuilder("C+O+T+D").fit(train)
     model = get_model("xgb_tuned").fit(fb.transform(train), log_price(train),
                                        eval_set=[(fb.transform(dev), log_price(dev))], verbose=False)
